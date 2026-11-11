@@ -122,8 +122,8 @@ const CONFIG = {
         enabled: true,
         audioFolder: 'otros/narracion/', // nombres: <historia>_<capitulo>.mp3 → historia_1.mp3, teatro_3.mp3
         storyIds: ['historia', 'teatro'], // mismo orden que HISTORY_STORIES
-        rate: 0.93,      // velocidad de la voz de síntesis (1 = normal)
-        pitch: 0.8,      // tono: más grave = más "locutor"
+        rate: 0.97,      // velocidad de la voz de síntesis (1 = normal)
+        pitch: 1,        // tono: 1 = natural (bajarlo hace que suene más robótica)
         gapAfter: 1.1,   // segundos de pausa al terminar un capítulo antes de pasar al siguiente
         musicDuck: 0.18, // la música baja a este % mientras se cuenta una historia
     },
@@ -291,66 +291,176 @@ const CONFIG = {
     // en vez de clonar el nodo del edificio (pensado para "img_logo").
     hotspots: [
 
-      {
+        {
             name: 'poster_sala2',
             title: 'Póster "La Primera del País"',
-            desc: 'El póster institucional de Radio Nacional Huanuni: su mascota, un minero con casco y lámpara frente al micrófono, representa el espíritu con el que la emisora se ganó el título de "La Primera del País" entre los oyentes del distrito.',
+            desc: [
+                "El póster institucional de Radio Nacional Huanuni: su mascota, un minero con casco y lámpara frente al micrófono, representa el espíritu con el que la emisora se ganó el título de “La Primera del País” entre los oyentes del distrito.",
+                "Esa mascota resume una idea de fondo: Radio Nacional Huanuni forma parte de la tradición de las radios mineras de Bolivia, emisoras creadas, financiadas y administradas por los propios trabajadores. Los obreros aportaban un porcentaje de su salario para sostenerlas y, cuando el ejército destruía los equipos, volvían a comprarlos entregando un día de jornal.",
+                "En tiempos de paz, estas radios reemplazaban al correo y al teléfono. Varias veces al día se leían convocatorias del comité de amas de casa, mensajes de los dirigentes, saludos entre enamorados, avisos deportivos, entierros, nacimientos y fiestas. En tiempos de crisis política, eran la fuente de información más confiable del país.",
+                "De sus cabinas salieron generaciones de periodistas y locutores que luego se hicieron conocidos en las ciudades: para muchos comunicadores, la radio minera fue su escuela.",
+            ],
+            sources: [
+                "Gumucio Dagron, A. (2001). Making Waves: Stories of Participatory Communication for Social Change. Nueva York: Rockefeller Foundation (cap. «Miners’ Radio Stations»).",
+                "Gumucio Dagron, A. y Cajías, L. (1989). Las radios mineras de Bolivia. La Paz: CIMCA.",
+            ],
         },
-        
+
         {
             name: 'poster_sala1',
             title: 'Póster de Canal Minero',
-            desc: 'El póster de Canal Minero (Canal 2 HD), medio televisivo hermano de Radio Nacional de Huanuni: juntos, radio y televisión, llevaron por años la señal abierta y la voz del distrito minero a toda la región.',
+            desc: [
+                "El póster de Canal Minero (Canal 2 HD), medio televisivo hermano de Radio Nacional de Huanuni: juntos, radio y televisión, llevaron por años la señal abierta y la voz del distrito minero a toda la región.",
+                "La televisión minera continúa una vocación mucho más antigua. La primera radio sindical minera nació en 1949 en el distrito de Catavi y, durante los quince años siguientes, otros distritos de Potosí y Oruro siguieron su ejemplo: a comienzos de los años setenta había 26 emisoras mineras en funcionamiento.",
+                "Hoy el Canal 2 Minero utiliza el teatro de la radio para sus programas de solidaridad, como las celebraciones del Día del Niño y la Navidad. Pantalla, micrófono y escenario siguen el mismo principio que inspiró a las radios mineras: medios que pertenecen a la comunidad y están al servicio de ella.",
+            ],
+            sources: [
+                "Gumucio Dagron, A. (2001). Making Waves: Stories of Participatory Communication for Social Change. Nueva York: Rockefeller Foundation.",
+                "Información sobre el uso del teatro · Radio Nacional Huanuni.",
+            ],
         },
 
         {
             name: 'poster_sala',
             title: 'Póster de la Radio',
-            desc: 'El póster promocional de Radio Nacional de Huanuni (RNH), FM 94.5: la imagen que identifica a la emisora en la sala, con su mascota minera y la dirección de su sitio web, símbolo de la voz que acompaña al distrito día a día.',
+            desc: [
+                "El póster promocional de Radio Nacional de Huanuni (RNH), FM 94.5: la imagen que identifica a la emisora en la sala, con su mascota minera y la dirección de su sitio web, símbolo de la voz que acompaña al distrito día a día.",
+                "La emisora transmite las 24 horas en FM 94.5 y también por internet. Su lema, “Voz sindicalista del minero boliviano”, recuerda su origen: una radio de propiedad social, fundada en 1958 con el aporte de cada obrero.",
+                "Antes de la FM, su señal viajaba en onda corta. Radioescuchas la registraron durante muchos años en los 5965 kHz, y todavía hoy pueden oírse grabaciones de los años 70 en las que la emisora anunciaba su canal de onda corta.",
+                "Radio Nacional de Huanuni es una de las pocas radios mineras que siguen al aire. Cuando el Estado cerró minas en los años ochenta y la caída del precio del estaño vació muchos campamentos, la mayoría de las emisoras desapareció junto con sus distritos.",
+            ],
+            sources: [
+                "Radio Nacional de Huanuni (s. f.). Sitio oficial: radionacionaldehuanuni.com.",
+                "Moore, D. (2022). Don Moore’s Photo Album: Bolivia 1985. The SWLing Post.",
+                "Gumucio Dagron, A. (2001). Making Waves: Stories of Participatory Communication for Social Change. Nueva York: Rockefeller Foundation.",
+            ],
         },
-        
+
         {
             name: 'cuadro_teatro1',
             title: 'Cuadro del Teatro Popular II',
-            desc: 'Otra escena del teatro popular: entre los cerros y el pueblo se alza una figura protectora que vela por la comunidad minera, mientras las manos del pueblo se elevan en súplica y esperanza, retratando la fe y la memoria colectiva de Huanuni.',
+            desc: [
+                "Otra escena del teatro popular: entre los cerros y el pueblo se alza una figura protectora que vela por la comunidad minera, mientras las manos del pueblo se elevan en súplica y esperanza, retratando la fe y la memoria colectiva de Huanuni.",
+                "Esa figura protectora recuerda la devoción a la Virgen del Socavón, venerada por los mineros de Oruro. Cada Carnaval, en la gran entrada, los “diablos” se enfrentan al Arcángel Miguel, que los derrota y expulsa en nombre de la Virgen. Muchos mineros de Huanuni viajan a Oruro para presenciarla.",
+                "El Carnaval de Oruro fue proclamado por la UNESCO en 2001 como Obra Maestra del Patrimonio Oral e Intangible de la Humanidad.",
+                "En Huanuni, el Carnaval es además la fiesta del Tío de la mina: desde el domingo hasta el miércoles de ceniza no se trabaja en el socavón, y los mineros bailan al pie del cerro Posokoni.",
+            ],
+            sources: [
+                "Ruiz Arrieta, G. (2011). El qaraku o wilancha: prácticas y creencias religiosas entre los mineros de Huanuni, Bolivia. (con)textos, 5, 63-77. Universitat de Barcelona.",
+                "UNESCO (2001). Proclamación del Carnaval de Oruro como Obra Maestra del Patrimonio Oral e Intangible de la Humanidad.",
+            ],
         },
 
         {
             name: 'cuadro_radio',
             title: 'Mural del Socavón',
-            desc: 'Un mural que retrata el alma minera de Huanuni: el trabajador con su dinamita y su lámpara, el Tío del socavón —figura protectora y temida de las minas—, y las imágenes de lucha y memoria revolucionaria que marcaron la historia del distrito.',
+            desc: [
+                "Un mural que retrata el alma minera de Huanuni: el trabajador con su dinamita y su lámpara, el Tío del socavón —figura protectora y temida de las minas—, y las imágenes de lucha y memoria revolucionaria que marcaron la historia del distrito.",
+                "En los socavones bolivianos se venera al Tío, el dueño del mineral. Habita en las profundidades, protege a los mineros y les revela las vetas ricas, pero también los castiga haciendo “desaparecer” la veta o incluso con la muerte. Los estudios lo describen como una deidad ambigua, nacida en la época colonial: tiene rasgos del diablo católico, pero los propios mineros se cuidan de no llamarlo así.",
+                "En la galería principal del cerro Posokoni se encuentra el Tío Ilaco, una figura de metro y medio vestida con lujo. Cada viernes y en fechas especiales los mineros ch’allan —ofrecen bebida— a un trozo de estaño llamado “torito”, para que “pinte la veta” y aparezca más mineral.",
+                "Cuando ocurre un accidente en el interior de la mina, los trabajadores dicen que “el Tío tiene hambre” y realizan una ofrenda ritual conocida como qaraku o wilancha. Este vínculo entre trabajo, riesgo y fe fue descrito por la antropóloga June Nash en su estudio clásico sobre las minas de estaño bolivianas.",
+            ],
+            sources: [
+                "Ruiz Arrieta, G. (2011). El qaraku o wilancha: prácticas y creencias religiosas entre los mineros de Huanuni, Bolivia. (con)textos, 5, 63-77. Universitat de Barcelona.",
+                "Nash, J. (1979). We Eat the Mines and the Mines Eat Us: Dependency and Exploitation in Bolivian Tin Mines. Nueva York: Columbia University Press.",
+            ],
         },
 
         {
             name: 'antena',
             title: 'Antena de Transmisión',
-            desc: 'El símbolo más visible de Radio Nacional Huanuni: desde aquí la señal llegaba a los campamentos mineros y viajaba por todo el distrito, llevando información, música y la voz de los trabajadores.',
+            desc: [
+                "El símbolo más visible de Radio Nacional Huanuni: desde aquí la señal llegaba a los campamentos mineros y viajaba por todo el distrito, llevando información, música y la voz de los trabajadores.",
+                "Una emisora de FM como la 94.5 trabaja en la banda de 87,5 a 108 MHz. Esas ondas viajan casi en línea recta, por eso la antena se instala en lo alto: cuanto más despejado el horizonte, más lejos llega la señal. Antes de la FM, la emisora también salía en onda corta, que rebota en las capas altas de la atmósfera y permite cruzar fronteras.",
+                "Durante el golpe de Estado de García Meza, en julio de 1980, el ejército tomó el control de las ciudades, pero las radios mineras siguieron al aire encadenadas en la llamada “cadena minera”. En su última transmisión, Radio Animas pidió a Radio Pío XII y a Radio Nacional de Huanuni que tomaran la señal y continuaran. El 18 de julio, la red informó que una ofensiva militar sobre Huanuni había sido repelida por mineros y campesinos.",
+                "Para quienes vivían bajo el control militar, estas antenas fueron durante días el único medio para saber lo que realmente pasaba en el país.",
+            ],
+            sources: [
+                "Gumucio Dagron, A. (2001). Making Waves: Stories of Participatory Communication for Social Change. Nueva York: Rockefeller Foundation.",
+                "O’Connor, A. (2004). Community Radio in Bolivia: The Miners’ Radio Stations. Lewiston: Edwin Mellen Press.",
+                "The Harvard Crimson (7 de mayo de 1981). Resistance to the Bolivian coup.",
+            ],
         },
+
         {
             name: 'cuadro_teatro',
             title: 'Cuadro del Teatro Popular',
-            desc: 'Un homenaje a las expresiones culturales y comunitarias que Radio Nacional Huanuni siempre acompañó y difundió.',
+            desc: [
+                "Un homenaje a las expresiones culturales y comunitarias que Radio Nacional Huanuni siempre acompañó y difundió.",
+                "Tener un teatro junto a la radio fue una característica de las emisoras mineras más desarrolladas: allí se realizaban las reuniones del sindicato, que se transmitían en vivo por la radio. En Radio Vanguardia, de Colquiri, el teatro estaba decorado con grandes murales que narraban la historia del distrito.",
+                "En las radios mineras, la secretaría de cultura del sindicato solía dirigir la emisora. En Huanuni se recuerda al secretario de cultura Hilarión Lima entre los impulsores de Radio Nacional. La radio y el teatro eran dos caras de la misma vida cultural: grupos de teatro popular que presentaban obras, a veces sobre la plataforma de un camión iluminada con las lámparas de los propios mineros, y que la radio anunciaba por sus micrófonos.",
+                "Hoy el teatro de Huanuni recibe reuniones de trabajadores y de dirigentes de sección, programas solidarios del Canal 2 Minero y actuaciones de escuelas, coros y grupos folklóricos.",
+            ],
+            sources: [
+                "Gumucio Dagron, A. (2001). Making Waves: Stories of Participatory Communication for Social Change. Nueva York: Rockefeller Foundation.",
+                "La radio Nacional de Huanuni (2007); Información sobre el uso del teatro · Radio Nacional Huanuni.",
+            ],
         },
+
         {
             name: 'img_che',
             title: 'Fotografía Histórica',
-            desc: 'Una imagen emblemática de la memoria revolucionaria y sindical que acompañó por décadas a los trabajadores mineros de Huanuni.',
+            desc: [
+                "Una imagen emblemática de la memoria revolucionaria y sindical que acompañó por décadas a los trabajadores mineros de Huanuni.",
+                "La imagen se basa en la célebre fotografía “Guerrillero Heroico”, tomada por Alberto Korda el 5 de marzo de 1960 en La Habana, durante el funeral de las víctimas de la explosión del barco La Coubre. Con los años se convirtió en uno de los retratos más reproducidos del mundo.",
+                "Bolivia fue el escenario final de Ernesto “Che” Guevara: fue capturado y ejecutado el 9 de octubre de 1967 en La Higuera. Su guerrilla tuvo un vínculo directo con Huanuni: el dirigente minero Moisés Guevara (sin parentesco con el Che), nacido en el campamento minero de Huanuni, fue uno de sus principales contactos y en 1966 encabezó el grupo que se integró a la guerrilla de Ñancahuazú. Murió el 31 de agosto de 1967.",
+                "Ese mismo año, el 24 de junio, el ejército atacó el campamento minero de Catavi-Siglo XX en la llamada Masacre de San Juan, con un saldo de 27 muertos y 80 heridos de bala. La versión oficial sostuvo que en las minas se preparaba un asalto a cuarteles en coordinación con la guerrilla. Las instalaciones de las radios mineras también fueron destruidas.",
+                "Los historiadores discuten cuánto apoyo real tuvo la guerrilla entre el movimiento minero: algunos análisis señalan que el Che no logró el respaldo de la izquierda boliviana organizada ni de los sindicatos mineros.",
+            ],
+            sources: [
+                "Casey, M. (2009). Che’s Afterlife: The Legacy of an Image. Nueva York: Vintage Books.",
+                "Buscabiografías (2019). Biografía de Moisés Guevara. buscabiografias.com.",
+                "Paseo de la Memoria (2024). 1967 San Juan: a sangre y fuego. La Paz: Ministerio de Justicia de Bolivia.",
+                "Rodríguez Merino, P. A. Fuera de foco: un análisis estratégico de la campaña guerrillera del Che Guevara en Bolivia (1966-67).",
+            ],
         },
+
         {
             name: 'img_logo',
             title: 'Logotipo Institucional',
-            desc: 'La identidad visual de Radio Nacional Huanuni, símbolo reconocido por generaciones de oyentes del distrito minero.',
+            desc: [
+                "La identidad visual de Radio Nacional Huanuni, símbolo reconocido por generaciones de oyentes del distrito minero.",
+                "El nombre de la emisora tiene su propia historia. A comienzos de los años cincuenta funcionaba en Huanuni la Radio 31 de Octubre, propiedad del Sindicato Mixto de Trabajadores Mineros, que transmitía desde la sección Hullman. El nombre “Nacional” se le dio en 1957 y empezó a funcionar como tal en 1958 (otra fuente la ubica en 1959).",
+                "Su identidad también se construyó con números y frases: la frecuencia FM 94.5, el canal de onda corta que anunciaban sus cortinas de los años 70 y el lema “Voz sindicalista del minero boliviano”.",
+                "Aunque cada radio minera era independiente de las demás, en las horas de crisis todas se enlazaban en la cadena minera. En esa red, el nombre Radio Nacional de Huanuni era uno de los más conocidos del país.",
+            ],
+            sources: [
+                "Resistencias de las radios populares en Bolivia (s. f.); La radio Nacional de Huanuni (2007).",
+                "Gumucio Dagron, A. (2001). Making Waves: Stories of Participatory Communication for Social Change. Nueva York: Rockefeller Foundation.",
+            ],
             useLogoModel: true,
         },
+
         {
             name: 'img_minero',
             title: 'Fotografía del Minero',
-            desc: 'Un tributo a los trabajadores mineros de Huanuni, protagonistas de la historia que esta radio nació para acompañar y difundir.',
+            desc: [
+                "Un tributo a los trabajadores mineros de Huanuni, protagonistas de la historia que esta radio nació para acompañar y difundir.",
+                "El yacimiento de Huanuni es el cerro Posokoni —nombre que significa “espumante”— y es el más importante depósito de estaño de Bolivia. La Empresa Minera Huanuni es la entidad minera estatal con más trabajadores del país.",
+                "La jornada es de ocho horas, dividida en tres turnos llamados “puntas”. El minero más experto, que guía a la cuadrilla, se llama maestro, y las pausas para el acullico de coca se pactan entre los propios trabajadores.",
+                "La historia de la mina es la de Bolivia: fue de Simón I. Patiño, pasó al Estado en la nacionalización de 1952, se privatizó a mediados de los años ochenta y volvió al Estado el 31 de octubre de 2006, tras el violento enfrentamiento de octubre entre trabajadores asalariados y cooperativistas. Desde entonces la planta de trabajadores creció de unos 800 a varios miles.",
+            ],
+            sources: [
+                "Ruiz Arrieta, G. (2011). El qaraku o wilancha: prácticas y creencias religiosas entre los mineros de Huanuni, Bolivia. (con)textos, 5, 63-77. Universitat de Barcelona.",
+                "Ruiz Arrieta, G. (2008). «Octubre negro» en Huanuni, Bolivia. IX Congreso Argentino de Antropología Social.",
+                "Eju.tv (2014). Fracaso. La minera estatal Huanuni pierde $us 2,4 millones en el primer semestre.",
+            ],
         },
+
         {
             name: 'banner',
             title: 'Banner de la Radio Nacional Huanuni ',
-            desc: 'Banner oficila de la Radio Nacional de Huanuni, que se encuentra en la parte frontal del edificio y es visible desde la plaza principal del distrito minero.',
+            desc: [
+                "Banner oficial de la Radio Nacional de Huanuni, que se encuentra en la parte frontal del edificio y es visible desde la plaza principal del distrito minero.",
+                "Detrás de ese frente hay una emisora que transmite las 24 horas en FM 94.5 y por internet, y que pertenece socialmente a los trabajadores mineros: nació en 1958 gracias al aporte de cada obrero y se sostuvo con parte del salario de todos.",
+                "Esa cercanía con la plaza no es casual. En los distritos mineros, los sindicatos y las radios solían compartir local, y las puertas de la emisora estaban abiertas a cualquier persona que quisiera expresarse sobre un asunto que afectara su vida. Era frecuente ver a la gente visitando la radio.",
+                "Huanuni es hoy el mayor productor de estaño del país, y su radio es una de las pocas voces mineras que sobreviven de una red que llegó a tener 26 emisoras.",
+            ],
+            sources: [
+                "Radio Nacional de Huanuni (s. f.). Sitio oficial: radionacionaldehuanuni.com.",
+                "Gumucio Dagron, A. (2001). Making Waves: Stories of Participatory Communication for Social Change. Nueva York: Rockefeller Foundation.",
+                "La radio Nacional de Huanuni (2007); Resistencias de las radios populares en Bolivia (s. f.).",
+            ],
         },
     ],
     // Puertas y portones: se buscan por nombre y se les añade un aviso de
@@ -881,6 +991,8 @@ exhibitCamera.lookAt(0, 0, 0);
 const exhibitPivot = new THREE.Group();
 exhibitScene.add(exhibitPivot);
 let exhibitObject = null;
+let exhibitFlatAxis = 0;
+let exhibitTime = 0;
 
 exhibitScene.add(new THREE.AmbientLight('#fff4e0', 1.7));
 const exhibitKeyLight = new THREE.DirectionalLight('#ffe8cc', 2.6);
@@ -904,6 +1016,22 @@ function resizeExhibitCanvas() {
     exhibitRenderer.setSize(w, h, false);
     exhibitCamera.aspect = w / h;
     exhibitCamera.updateProjectionMatrix();
+    fitExhibitCamera();
+}
+
+// Dimensiones (ya normalizadas) del objeto que se está mostrando; sirven para
+// acercar o alejar la cámara hasta que el objeto llene bien el visor.
+let exhibitDims = null;
+let exhibitFlat = false; // cuadros / pósters planos: se balancean en vez de girar 360° (de canto no se ven)
+function fitExhibitCamera() {
+    if (!exhibitDims) return;
+    const tanHalf = Math.tan(THREE.MathUtils.degToRad(exhibitCamera.fov / 2));
+    const margin = 1.1;
+    const distH = (exhibitDims.h / 2) * margin / tanHalf;
+    const distW = (exhibitDims.w / 2) * margin / (tanHalf * exhibitCamera.aspect);
+    const dist = Math.max(distH, distW) + exhibitDims.d / 2;
+    exhibitCamera.position.set(0, 0, dist);
+    exhibitCamera.lookAt(0, 0, 0);
 }
 
 function clearExhibitStage() {
@@ -911,6 +1039,8 @@ function clearExhibitStage() {
         exhibitPivot.remove(exhibitPivot.children[i]);
     }
     exhibitObject = null;
+    exhibitDims = null;
+    exhibitFlat = false;
 }
 
 // Clona el nodo fuente (objeto real del edificio, o el logo.glb), lo centra
@@ -948,7 +1078,7 @@ function setExhibitObject(sourceNode) {
     const size = box.getSize(new THREE.Vector3());
     const center = box.getCenter(new THREE.Vector3());
     const maxDim = Math.max(size.x, size.y, size.z) || 1;
-    const scale = 1.6 / maxDim;
+    const scale = 1.6 / maxDim; // normaliza el tamaño; el encuadre final lo hace fitExhibitCamera()
 
     clone.scale.multiplyScalar(scale);
     clone.position.set(
@@ -961,6 +1091,14 @@ function setExhibitObject(sourceNode) {
     exhibitPivot.rotation.set(0, 0, 0);
     exhibitPivot.add(clone);
     exhibitObject = clone;
+
+    // Encuadre: ancho = diagonal horizontal (el objeto gira), alto, y fondo.
+    const sx = size.x * scale, sy = size.y * scale, sz = size.z * scale;
+    exhibitDims = { w: Math.hypot(sx, sz), h: sy, d: Math.hypot(sx, sz) };
+    const thin = Math.min(sx, sz), wide = Math.max(sx, sz);
+    exhibitFlat = thin < wide * 0.18; // plano → se ve de frente, con vaivén suave
+    exhibitFlatAxis = sx >= sz ? 0 : Math.PI / 2;
+    fitExhibitCamera();
     return clone;
 }
 // Quita el desplazamiento NETO (X/Z, de principio a fin) de cualquier track
@@ -1384,6 +1522,7 @@ loader.load(
             const hotspotData = {
                 title: def.title,
                 desc: def.desc,
+                sources: def.sources || [],
                 position: centerPos.clone(),
                 marker,
                 sourceNode: node,               // referencia al objeto real del edificio (para clonarlo en el panel)
@@ -2787,7 +2926,32 @@ function openHotspotPanel(hotspot) {
     markHotspotSeen(hotspot);
     document.getElementById('interact-hint').classList.remove('visible');
     document.getElementById('hotspot-title').textContent = hotspot.title;
-    document.getElementById('hotspot-desc').textContent = hotspot.desc;
+    const descEl = document.getElementById('hotspot-desc');
+    descEl.textContent = '';
+    (Array.isArray(hotspot.desc) ? hotspot.desc : [hotspot.desc]).forEach((t) => {
+        const p = document.createElement('p');
+        p.textContent = t;
+        descEl.appendChild(p);
+    });
+    const srcEl = document.getElementById('hotspot-sources');
+    srcEl.textContent = '';
+    if (hotspot.sources && hotspot.sources.length) {
+        const h = document.createElement('div');
+        h.className = 'hs-src-title';
+        h.textContent = 'Fuentes y lecturas';
+        srcEl.appendChild(h);
+        hotspot.sources.forEach((s) => {
+            const li = document.createElement('div');
+            li.className = 'hs-src-item';
+            li.textContent = s;
+            srcEl.appendChild(li);
+        });
+        srcEl.style.display = '';
+    } else {
+        srcEl.style.display = 'none';
+    }
+    const innerEl = document.querySelector('.hotspot-panel-inner');
+    if (innerEl) innerEl.scrollTop = 0;
 
     // Mostrar el objeto 3D real (clonado) en vez de sólo texto: el nodo del
     // edificio para la mayoría de hotspots, o el logo.glb independiente
@@ -2989,6 +3153,7 @@ function renderHistoryChapters(story) {
     story.cfg.chapters.forEach((c, i) => {
         const sec = document.createElement('section');
         sec.className = 'hx-chapter';
+        const citeText = (c.cite || '').replace(/^Fuentes?:\s*/i, '').trim();
         const stats = c.stats ? `<div class="hx-stats">${c.stats.map((st) =>
             `<div class="hx-stat"><b data-to="${st.n}" data-dec="${st.dec || 0}" data-pre="${st.prefix || ''}" data-suf="${st.suffix || ''}">0</b><span>${st.l}</span></div>`).join('')}</div>` : '';
         sec.innerHTML = `<div class="hx-year">${c.year}<small>${c.tag}</small></div>
@@ -2996,7 +3161,8 @@ function renderHistoryChapters(story) {
             <h2 class="hx-title">${c.title}</h2>
             <div class="hx-text">${c.text.map((t) => `<p>${t}</p>`).join('')}</div>
             ${stats}
-            ${c.fact ? `<div class="hx-fact">${c.fact}</div>` : ''}`;
+            ${c.fact ? `<div class="hx-fact">${c.fact}</div>` : ''}
+            ${citeText ? `<div class="hx-cite"><span class="hx-cite-label">Fuente</span><span class="hx-cite-text">${citeText}</span></div>` : ''}`;
         wrap.appendChild(sec);
         const d = document.createElement('button');
         d.setAttribute('aria-label', `Capítulo ${i + 1}`);
@@ -3048,8 +3214,6 @@ function showHistoryChapter(n) {
     secs.forEach((s, i) => s.classList.toggle('active', i === n));
     markHistoryDots(n);
     document.getElementById('hx-chapters').scrollTop = 0;
-    const cite = hxStory.cfg.chapters[n].cite || '';
-    document.getElementById('hx-source').textContent = cite.replace(/^Fuentes?:\s*/i, '');
     applyHistoryShot(n);
     if (historyTuning <= 0) startNarration(n); // en la primera, la voz entra cuando termina la sintonía
     cancelAnimationFrame(historyCountRAF);
@@ -3378,26 +3542,72 @@ let narrClip = null;        // <audio> si hay grabación real
 let narrVoice = null;
 const speech = ('speechSynthesis' in window) ? window.speechSynthesis : null;
 
+const VOICE_PREF_KEY = 'rnh_narrator_voice';
+function esVoices() {
+    return speech ? speech.getVoices().filter((v) => /^es([-_]|$)/i.test(v.lang)) : [];
+}
+// Puntaje de "naturalidad": las voces neuronales (Edge "Natural", Google) suenan mucho
+// más humanas que las voces locales clásicas de Windows (Helena, Sabina, Pablo...).
+function voiceScore(v) {
+    const n = v.name;
+    let sc = 0;
+    if (/natural|neural|online/i.test(n)) sc += 100;
+    if (/google/i.test(n)) sc += 60;
+    if (!v.localService) sc += 15;
+    if (/pablo|jorge|diego|raul|raúl|carlos|juan|enrique|miguel|alvaro|álvaro|andres|andrés|alonso|jorge|gonzalo|tomas|tomás|male|hombre/i.test(n)) sc += 10;
+    const l = v.lang.replace('_', '-').toLowerCase();
+    if (l === 'es-bo') sc += 4; else if (l === 'es-us' || l === 'es-419') sc += 3; else if (l === 'es-mx') sc += 2;
+    if (/compact|eloquence|espeak|zira|hortense/i.test(n)) sc -= 40;
+    return sc;
+}
 function pickNarratorVoice() {
     if (!speech) return null;
-    const voices = speech.getVoices().filter((v) => /^es([-_]|$)/i.test(v.lang));
+    const voices = esVoices();
     if (!voices.length) return null;
-    const langRank = (v) => {
-        const l = v.lang.replace('_', '-').toLowerCase();
-        if (l === 'es-bo') return 0;
-        if (l === 'es-us' || l === 'es-419') return 1;
-        if (l === 'es-mx') return 2;
-        return 3;
-    };
-    const male = /pablo|jorge|diego|raul|raúl|carlos|juan|enrique|miguel|alvaro|álvaro|andres|andrés|male|hombre/i;
-    return voices.slice().sort((a, b) =>
-        (male.test(b.name) - male.test(a.name)) || (langRank(a) - langRank(b)) ||
-        (a.localService === b.localService ? 0 : a.localService ? -1 : 1))[0];
+    try {
+        const saved = localStorage.getItem(VOICE_PREF_KEY);
+        if (saved) { const v = voices.find((x) => x.name === saved); if (v) return v; }
+    } catch (e) { /* sin almacenamiento: se usa la automática */ }
+    return voices.slice().sort((a, b) => voiceScore(b) - voiceScore(a))[0];
 }
 if (speech) {
     narrVoice = pickNarratorVoice();
-    speech.addEventListener('voiceschanged', () => { narrVoice = pickNarratorVoice(); });
+    speech.addEventListener('voiceschanged', () => { narrVoice = pickNarratorVoice(); buildVoiceSelect(); });
 }
+
+// Selector de voz en Ajustes: las voces disponibles dependen del navegador y del sistema.
+function buildVoiceSelect() {
+    const panel = document.getElementById('settings-panel');
+    if (!panel || !speech) return;
+    const voices = esVoices();
+    let row = document.getElementById('voice-row');
+    if (!voices.length) return;
+    if (!row) {
+        row = document.createElement('div');
+        row.className = 'setting-row';
+        row.id = 'voice-row';
+        row.innerHTML = '<label for="narr-voice">Voz narrador</label><select id="narr-voice" style="max-width:150px"></select>';
+        panel.appendChild(row);
+        row.querySelector('select').addEventListener('change', (e) => {
+            try { e.target.value ? localStorage.setItem(VOICE_PREF_KEY, e.target.value) : localStorage.removeItem(VOICE_PREF_KEY); } catch (err) { /* ignorar */ }
+            narrVoice = pickNarratorVoice();
+            if (historyOpen) { startNarration(historyIndex); return; }
+            speech.cancel(); // prueba rápida de la voz elegida
+            const u = new SpeechSynthesisUtterance('Bienvenidos a Radio Nacional Huanuni, la voz del minero.');
+            if (narrVoice) { u.voice = narrVoice; u.lang = narrVoice.lang; }
+            u.rate = CONFIG.narration.rate; u.pitch = CONFIG.narration.pitch; u.volume = narrVolume();
+            speech.speak(u);
+        });
+    }
+    const sel = row.querySelector('select');
+    let saved = '';
+    try { saved = localStorage.getItem(VOICE_PREF_KEY) || ''; } catch (e) { /* ignorar */ }
+    const best = voices.slice().sort((a, b) => voiceScore(b) - voiceScore(a));
+    sel.innerHTML = '<option value="">Automática (la mejor)</option>' +
+        best.map((v) => `<option value="${v.name.replace(/"/g, '&quot;')}">${v.name.replace(/Microsoft |Google /, (m) => m.trim() + ' ').replace(/</g, '')}</option>`).join('');
+    sel.value = saved && best.some((v) => v.name === saved) ? saved : '';
+}
+if (speech) buildVoiceSelect();
 
 function narrVolume() {
     const v = getUserVolume();
@@ -3749,6 +3959,7 @@ function renderLogoSticker(px) {
         exhibitRenderer.setSize(px, px, false);
         exhibitCamera.aspect = 1;
         exhibitCamera.updateProjectionMatrix();
+        fitExhibitCamera();
         exhibitRenderer.setClearColor(0x000000, 0);
         exhibitRenderer.render(exhibitScene, exhibitCamera);
         const c = document.createElement('canvas');
@@ -3970,7 +4181,12 @@ function animate() {
 
     // Renderizar el objeto 3D real dentro del panel de exhibición (si está abierto)
     if (panelOpen && exhibitObject) {
-        exhibitPivot.rotation.y += delta * 0.6;
+        if (exhibitFlat) { // cuadro plano: de frente y con vaivén suave para apreciar el relieve
+            exhibitTime += delta;
+            exhibitPivot.rotation.y = exhibitFlatAxis + Math.sin(exhibitTime * 0.7) * 0.38;
+        } else {
+            exhibitPivot.rotation.y += delta * 0.6;
+        }
         exhibitRenderer.render(exhibitScene, exhibitCamera);
     }
 }

@@ -433,8 +433,13 @@ canvas#main-canvas {
 }
 .hotspot-panel-inner {
     position: relative;
-    max-width: 520px;
+    max-width: 600px;
     width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(201,168,76,0.45) transparent;
     background: rgba(10, 10, 14, 0.92);
     border: 1px solid var(--glass-border);
     border-radius: 18px;
@@ -453,7 +458,7 @@ canvas#main-canvas {
 #exhibit-stage {
     display: none;
     width: 100%;
-    height: 220px;
+    height: clamp(260px, 42vh, 400px);
     margin-bottom: 20px;
     border-radius: 14px;
     background: radial-gradient(circle at 50% 38%, rgba(201,168,76,0.14), rgba(0,0,0,0.4) 72%);
@@ -482,7 +487,35 @@ canvas#main-canvas {
     font-size: 0.95rem;
     line-height: 1.7;
     margin-bottom: 18px;
+    text-align: left;
 }
+#hotspot-desc p { margin: 0 0 12px; }
+#hotspot-desc p:first-child { text-align: center; font-weight: 500; }
+#hotspot-desc p:last-child { margin-bottom: 0; }
+#hotspot-sources {
+    text-align: left;
+    margin: 0 0 18px;
+    padding: 12px 14px;
+    border-left: 2px solid var(--gold);
+    background: rgba(255,255,255,0.04);
+    border-radius: 0 10px 10px 0;
+}
+.hs-src-title {
+    font-family: var(--font-heading);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+}
+.hs-src-item {
+    font-size: 0.72rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+}
+.hs-src-item:last-child { margin-bottom: 0; }
 .hotspot-hint {
     font-size: 0.75rem;
     color: var(--text-muted);
@@ -812,7 +845,7 @@ canvas#main-canvas {
     .tour-progress { width: 50vw; }
     #interact-hint { bottom: 110px; font-size: 0.7rem; padding: 6px 14px; }
     .hotspot-panel-inner { padding: 22px 20px 28px; }
-    #exhibit-stage { height: 160px; margin-bottom: 16px; }
+    #exhibit-stage { height: clamp(200px, 34vh, 300px); margin-bottom: 16px; }
     .radio-panel-inner { padding: 26px 22px 24px; }
     .radio-bars { height: 46px; }
     .radio-station { font-size: 1.25rem; }
@@ -855,7 +888,8 @@ canvas#main-canvas {
 
 /* fuente al pie (referencia, no bibliografía) */
 .hx-source { flex: 1; font-size: .72rem; letter-spacing: .03em; color: rgba(255,255,255,.7); }
-.hx-source::before { content: 'Fuente · '; color: var(--hx-yellow); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; font-size: .62rem; }
+/* la fuente ahora vive dentro de la tarjeta (.hx-cite); aquí queda solo como espaciador */
+.hx-source::before { content: none; }
 .hx-keys { font-size: .62rem; letter-spacing: .05em; color: rgba(255,255,255,.5); white-space: nowrap; }
 .hx-keys kbd { display: inline-block; padding: 0 5px; margin: 0 1px; border-radius: 4px; border: 1px solid rgba(255,199,44,.55); color: var(--hx-yellow); font-family: inherit; }
 .hx-exit { flex: none; cursor: pointer; padding: 10px 20px; border-radius: 30px; border: 0; font: 800 .7rem var(--font-heading); letter-spacing: .12em; text-transform: uppercase;
@@ -884,6 +918,10 @@ canvas#main-canvas {
 .hx-title span { color: var(--hx-yellow); }
 .hx-text { font-size: .88rem; line-height: 1.62; color: rgba(255,255,255,.9); }
 .hx-text p + p { margin-top: 9px; }
+.hx-cite { display: flex; gap: 8px; align-items: baseline; margin: 12px 0 6px; padding-top: 10px; border-top: 1px dashed rgba(255,199,44,.35); font-size: .74rem; line-height: 1.45; color: rgba(255,255,255,.85); }
+.hx-cite-label { flex: none; color: var(--hx-yellow); font: 700 .6rem var(--font-heading); letter-spacing: .12em; text-transform: uppercase; }
+.hx-cite-label::after { content: ' ·'; }
+.hx-cite-text { font-style: italic; }
 .hx-text strong { color: var(--hx-yellow-soft); }
 .hx-stats { display: flex; gap: 8px; margin-top: 12px; }
 .hx-stat { flex: 1; padding: 8px 10px; border-radius: 12px; background: rgba(255,199,44,.1); border: 1px solid rgba(255,199,44,.3); }
